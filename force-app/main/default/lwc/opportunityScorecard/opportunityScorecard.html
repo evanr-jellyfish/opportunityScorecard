@@ -1,0 +1,336 @@
+<template>
+    <div align="center">
+        <table border="0" cellpadding="5" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th colspan="4"><h1>Jellyfish Opportunity Scorecard</h1></th>
+                </tr>
+                <tr>
+                    <td colspan="4">v2024.06.19 - 7:05 pm</td>
+                </tr>
+                <tr><td colspan="4" style="height: 20px;"></td></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Opportunity Name</td>
+                    <td colspan="2">{opportunityData.name}</td>
+                    <td style="font-weight: bold;">Overall Score (Unweighted): {opportunityData.spiced_unweighted_score} / 15</td>
+                </tr>
+                <tr>
+                    <td>Amount</td>
+                    <td colspan="2">{opportunityData.amount}</td>
+                    <td style="font-weight: bold;">Last Scored: {opportunityData.spiced_weighted_score} / 30</td>
+                </tr>
+                <tr>
+                    <td>Close Date</td>
+                    <td colspan="2">{opportunityData.closeDate}</td>
+                    <td style="font-weight: bold;">Last Scored: {opportunityData.scoreDate}</td>
+                </tr>
+                <tr>
+                    <td>Stage</td>
+                    <td colspan="3">{opportunityData.stage}</td>
+                </tr>
+                <tr>
+                    <td>Next Steps</td>
+                    <td colspan="2">{opportunityData.nextStep}</td>
+                    <td></td>
+                </tr>
+                <tr><td colspan="4" style="height: 20px;"></td></tr>
+                <tr>
+                    <th colspan="4" class="grayBackground"><h1>Situation</h1></th>
+                </tr>
+                <tr>
+                    <td colspan="4" class="grayBackground">Facts, circumstances, and background details about your prospect</td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="grayBackground" style="font-weight: bold;">AE Last Updated:  {opportunityData.spicedSituationUpdated}</td>
+                </tr>
+                <tr>
+                    <td class="quote" colspan="3">{opportunityData.spicedSituation}</td>
+                    <td class="grayBackground"></td>             
+                </tr>
+                <tr><td colspan="4" style="height: 20px;"></td></tr>
+                <tr>
+                    <th colspan="4"><h2>Situation Score Details</h2></th>
+                </tr>
+                <tr>
+                    <th>Criteria</th>
+                    <th>Description</th>
+                    <th>Raw Score</th>
+                    <th>Raw Score</th>
+                </tr>
+                <tr>
+                    <td>Is 100% of the customer using compatible tools?</td>
+                    <td>Tool Usage</td>
+                    <td>{opportunityData.Tool_Compatibility_Score}</td>
+                    <td class={toolCompatibilityColorClass}></td>
+                </tr>
+                <tr>
+                    <td>Is the prospect based in USA/EMEA?</td>
+                    <td>Location</td>
+                    <td>{opportunityData.NA_EMEA}</td>
+                    <td class={naEmeaColorClass}></td>
+                </tr>
+                <tr>
+                    <td>Is the prospect primarily a software company?</td>
+                    <td>Software Focus</td>
+                    <td>{opportunityData.Primarily_Software}</td>
+                    <td class={primarilySoftwareColorClass}></td>
+                </tr>
+                <tr>
+                    <td>What is the quality of the AE-provided note?</td>
+                    <td>Data Score</td>
+                    <td>{opportunityData.spicedSituationDataScore}</td>
+                    <td class={situationDataScoreClass}></td>
+                </tr>
+                <tr>
+                    <td>What is the signal value that came from the AE-provided note?</td>
+                    <td>Signal Score</td>
+                    <td>{opportunityData.spicedSituationSignalScore}</td>
+                    <td class={situationSignalScoreClass}></td>
+                </tr>
+                <tr><td colspan="4" style="height: 20px;"></td></tr>
+                <tr>
+                    <th colspan="4" class="grayBackground"><h1>Pain</h1></th>
+                </tr>
+                <tr>
+                    <td colspan="4" class="grayBackground">The challenges that brought the prospect your way</td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="font-weight: bold;" class="grayBackground">AE Last Updated:  {opportunityData.spicedPainUpdated}</td>
+                </tr>
+                <tr>
+                    <td class="quote" colspan="3">{opportunityData.spicedPain}</td>
+                    <td class="grayBackground"></td>
+                </tr>
+                <tr><td colspan="4" style="height: 20px;"></td></tr>
+                <tr>
+                    <th colspan="2"><h2>Pain Score Details</h2></th>
+                </tr>
+                <tr>
+                    <th>Criteria</th>
+                    <th>Description</th>
+                    <th>Raw Score</th>
+                    <th>Raw Score</th>
+                </tr>
+                <tr>
+                    <td>What is the quality of the AE-provided note?</td>
+                    <td>Data Score</td>
+                    <td>{opportunityData.spicedPainDataScore}</td>
+                    <td class={painDataScoreClass}></td>
+                </tr>
+                <tr>
+                    <td>What is the signal value that came from the AE-provided note?</td>
+                    <td>Signal Score</td>
+                    <td>{opportunityData.spicedPainSignalScore}</td>
+                    <td class={painSignalScoreClass}></td>
+                </tr>
+                <tr><td colspan="4" style="height: 20px;"></td></tr>
+                <tr>
+                    <th colspan="4" class="grayBackground"><h1>Impact</h1></th>
+                </tr>
+                <tr>
+                    <td colspan="4" class="grayBackground">How you impact your prospect’s business</td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="font-weight: bold;" class="grayBackground">AE Last Updated:  {opportunityData.spicedImpactUpdated}</td>
+                </tr>                
+                <tr>
+                    <td class="quote" colspan="3">{opportunityData.spicedImpact}</span></td>
+                    <td class="grayBackground"></td>
+                </tr>
+                <tr><td colspan="4" style="height: 20px;"></td></tr>
+                <tr>
+                    <th colspan="4"><h2>Impact Score Details</h2></th>
+                </tr>
+                <tr>
+                    <th>Criteria</th>
+                    <th>Description</th>
+                    <th>Raw Score</th>
+                    <th>Raw Score</th>
+                </tr>
+                <tr>
+                    <td>What is the quality of the AE-provided note?</td>
+                    <td>Data Score</td>
+                    <td>{opportunityData.spicedImpactDataScore}</td>
+                    <td class={impactSignalScoreClass}></td>
+                </tr>
+                <tr>
+                    <td>What is the signal value that came from the AE-provided note?</td>
+                    <td>Signal Score</td>
+                    <td>{opportunityData.spicedImpactSignalScore}</td>
+                    <td class={impactDataScoreClass}></td>
+                </tr>
+                <tr><td colspan="4" style="height: 20px;"></td></tr>
+                <tr>
+                    <th colspan="4" class="grayBackground"><h1>Critical Event</h1></th>
+                </tr>
+                <tr>
+                    <td colspan="4" class="grayBackground">Deadline to achieve that impact</td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="font-weight: bold;" class="grayBackground">AE Last Updated:  {opportunityData.spicedCritEventUpdated}</td>
+                </tr>                
+                <tr>
+                    <td class="quote" colspan="3">{opportunityData.spicedCriticalEvent}</td>
+                    <td class="grayBackground"></td>
+                </tr>
+                <tr><td colspan="4" style="height: 20px;"></td></tr>
+                <tr>
+                    <th colspan="4"><h2>Critical Event Score Details</h2></th>
+                </tr>
+                <tr>
+                    <th>Criteria</th>
+                    <th>Description</th>
+                    <th>Raw Score</th>
+                    <th>Raw Score</th>
+                </tr>
+                <tr>
+                    <td>What is the quality of the AE-provided note?</td>
+                    <td>Data Score</td>
+                    <td>{opportunityData.spicedCritEventDataScore}</td>
+                    <td class={criticalEventDataScoreClass}></td>
+                </tr>
+                <tr>
+                    <td>What is the signal value that came from the AE-provided note?</td>
+                    <td>Signal Score</td>
+                    <td>{opportunityData.spicedCritEventSignalScore}</td>
+                    <td class={criticalEventSignalScoreClass}></td>
+                </tr>
+                <tr><td colspan="4" style="height: 20px;"></td></tr>
+                <tr>
+                    <th colspan="4" class="grayBackground"><h1>Decision Criteria</h1></th>
+                </tr>
+                <tr>
+                    <td colspan="4" class="grayBackground">The process, committee, and criteria involved in purchasing a solution</td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="font-weight: bold;" class="grayBackground">AE Last Updated:  {opportunityData.spicedDecisionProcUpdated}</td>
+                </tr>  
+                <tr>
+                    <td class="quote" colspan="3">{opportunityData.spicedDecisionCriteria}</td>
+                    <td class="grayBackground"></td>
+                </tr>
+                <tr><td colspan="4" style="height: 20px;"></td></tr>
+                <tr>
+                    <th colspan="4"><h2>Decision Criteria Score Details</h2></th>
+                </tr>
+                <tr>
+                    <th>Criteria</th>
+                    <th>Description</th>
+                    <th>Raw Score</th>
+                    <th>Raw Score</th>
+                </tr>
+                <tr>
+                    <td>What is the quality of the AE-provided note?</td>
+                    <td>Data Score</td>
+                    <td>{opportunityData.spicedDecisionProcDataScore}</td>
+                    <td class={decisionCriteriaDataScoreClass}></td>
+                </tr>
+                <tr>
+                    <td>What is the signal value that came from the AE-provided note?</td>
+                    <td>Signal Score</td>
+                    <td>{opportunityData.spicedDecisionProcSignalScore}</td>
+                    <td class={decisionCriteriaSignalScoreClass}></td>
+                </tr>
+                <tr><td colspan="4" style="height: 20px;"></td></tr>
+                <tr>
+                    <th colspan="4" class="grayBackground"><h1>Competition</h1></th>
+                </tr>
+                <tr>
+                    <td colspan="4" class="grayBackground">What is the competitive landscape in this opportunity? Who are we competing with? How are they being considered by the prospect?</td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="font-weight: bold;" class="grayBackground">AE Last Updated:  {opportunityData.spicedCompetitionUpdated}</td>
+                </tr>                  
+                <tr>
+                    <td class="quote" colspan="3">{opportunityData.spicedCompetition}</td>
+                    <td class="grayBackground"></td>
+                </tr>
+                <tr><td colspan="4" style="height: 20px;"></td></tr>
+                <tr>
+                    <th colspan="4"><h2>Competition Score Details</h2></th>
+                </tr>
+                <tr>
+                    <th>Criteria</th>
+                    <th>Description</th>
+                    <th>Raw Score</th>
+                    <th>Raw Score</th>
+                </tr>
+                <tr>
+                    <td>What is the quality of the AE-provided note?</td>
+                    <td>Data Score</td>
+                    <td>{opportunityData.spicedCompetitionDataScore}</td>
+                    <td class={competitionDataScoreClass}></td>
+                </tr>
+                <tr>
+                    <td>What is the signal value that came from the AE-provided note?</td>
+                    <td>Signal Score</td>
+                    <td>{opportunityData.spicedCompetitionSignalScore}</td>
+                    <td class={competitionSignalScoreClass}></td>
+                </tr>
+                <tr><td colspan="4" style="height: 20px;"></td></tr>
+                <tr>
+                    <th colspan="4" class="grayBackground"><h1>Customer Fit</h1></th>
+                </tr>
+                <tr>
+                    <td colspan="4" class="grayBackground">How well aligned are the customer's needs to the solutions we provide?</td>
+                </tr>
+                <tr><td colspan="4" style="height: 20px;"></td></tr>
+                <tr>
+                    <th colspan="4"><h2>Customer Fit Score Details</h2></th>
+                </tr>                
+                <tr>
+                    <td>How many use cases are scored as "Need to Have"?</td>
+                    <td>Score</td>
+                    <td>{opportunityData.fitscore_count_of_needs}</td>
+                    <td class ={fitScoreColorClass}></td>
+                </tr>
+                <tr><td colspan="4" style="height: 20px;"></td></tr>
+                <tr>
+                    <th colspan="4" class="grayBackground"><h1>Role-Based Scores</h1></th>
+                </tr>
+                <tr><td colspan="4" style="height: 20px;"></td></tr>
+                <tr>
+                    <th colspan="4"><h2>Role-Based Score Details</h2></th>
+                </tr>
+                <tr>
+                    <th>Criteria</th>
+                    <th>Description</th>
+                    <th>Raw Score</th>
+                    <th>Raw Score</th>
+                </tr>
+                <tr>
+                    <td valign="top">Level of Champion</td>
+                    <td valign="top">What is the level of the Champion within the organization? (VP, Director, Manager)<br>
+                        0 = Not Listed, OR No champion<br>
+                        1 = Manager<br>
+                        3 = Director<br>
+                        5 = VP / Exec
+                        <br><br></td>
+                    <td valign="top">{opportunityData.championLevelScore}</td>
+                    <td valign="top" class={championLevelScoreColorClass}></td>
+                </tr>
+                <tr>
+                    <td valign="top">Role Type of Champion</td>
+                    <td valign="top">0 = Not Listed OR No champion OR Unclear Role Type<br>                        
+                        3 = Operations<br>
+                        4 = Finance<br>
+                        5 = Engineering<br></td>
+                    <td valign="top">{opportunityData.championRoleScore}</td>
+                    <td valign="top" class={championRoleTypeColorClass}></td>
+                </tr>
+                <tr>
+                    <td valign="top">Economic Buyer</td>
+                    <td valign="top">0 = Unidentified<br>
+                        1 = Not met and unengaged<br>
+                        2 = Met and not Engaged<br>
+                        5 = Met and Engaged
+                        <br><br></td>
+                    <td valign="top">{opportunityData.EconomicBuyerStatus}</td>
+                    <td valign="top" class={EconomicBuyerStatusColorClass}></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>

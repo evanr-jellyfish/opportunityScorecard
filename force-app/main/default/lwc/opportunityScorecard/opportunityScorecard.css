@@ -1,0 +1,69 @@
+table {
+    width: 100%;
+    table-layout: fixed; /* Ensures columns are evenly spaced */
+    border-collapse: collapse; /* Ensures the borders collapse into a single border */
+}
+
+th, td {
+    border: none;
+    word-wrap: break-word; /* Ensures content does not overflow */
+}
+
+th {
+    text-align: left;
+}
+
+h1 {
+    font-size: 2em; /* Makes the h1 text larger */
+    font-weight: bold; /* Makes the h1 text bold */
+    margin: 0 0 0 0; /* Adds space above only */
+    text-align: left; /* Aligns the text to the left */
+}
+
+h2 {
+    font-size: 1.5em; /* Makes the h2 text larger, but smaller than h1 */
+    font-weight: semi-bold; /* Makes the h2 text semi-bold */
+    margin: 15px 0; /* Adds some space above and below */
+    text-align: left; /* Aligns the text to the left */
+}
+
+td.quote {
+    font-style: italic;
+    background-color: #f0f0f0; /* Light gray shade */
+    padding: 10px; /* Adds some padding for better readability */
+    border: none; /* Ensures no borders */
+    word-wrap: break-word; /* Ensures content does not overflow */
+}
+
+td.grayBackground {
+    background-color: #f0f0f0; /* Light gray shade */
+}
+
+th.grayBackground  {
+    background-color: #f0f0f0; /* Light gray shade */
+}
+
+
+.green {
+    background-color: green;
+    color: white;
+    border: 1px solid black;
+}
+
+.red {
+    background-color: red;
+    color: white;
+    border: 1px solid black;
+}
+
+.dark-yellow {
+    background-color: #FFA500; /* Adjust this to your desired dark yellow color */
+    color: black;
+    border: 1px solid black;
+}
+
+.dark-red {
+    background-color: darkred;
+    color: white; /* Ensures text is readable on a dark red background */
+    border: 1px solid black;
+}
