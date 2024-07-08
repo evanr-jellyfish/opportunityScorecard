@@ -59,7 +59,7 @@ export default class OpportunityScorecard extends LightningElement {
     }
 
     formatDate(dateString) {
-        console.log('formatDate called with:', dateString);
+        console.log('forematDate called with:', dateString);
         if (!dateString) {
             return 'N/A';
         }
@@ -67,9 +67,24 @@ export default class OpportunityScorecard extends LightningElement {
         return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear().toString().slice(-2)}`;
     }
 
+    formatDateTime(dateString) {
+        console.log('formatDateTime called with:', dateString);
+        if (!dateString) {
+            return 'N/A';
+        }
+        const date = new Date(dateString);
+        const options = { 
+            month: '2-digit', 
+            day: '2-digit', 
+            year: '2-digit', 
+            hour: '2-digit', 
+            minute: '2-digit',
+            hour12: true 
+        };
+        return date.toLocaleString('en-US', options);
+    }
+
     mapEconomicBuyerStatus(status) {
-        // console.log('Debug: I received a status of ' + status + ' inside of mapEconomicBuyerStatus.');
-        //Debug: I received a status of 4. Met and Engaged inside of mapEconomicBuyerStatus.
         switch (status) {
             case '1. Not Identified':
                 return '0';
@@ -80,7 +95,6 @@ export default class OpportunityScorecard extends LightningElement {
             case '4. Met and Engaged':
                 return '5';
             default:
-                // console.log('I wasn\'t able to parse it.');
                 return 'N/A';
         }
     }
@@ -123,9 +137,9 @@ export default class OpportunityScorecard extends LightningElement {
                 NA_EMEA: data.fields.NA_EMEA__c.value === undefined ? 'N/A' : (data.fields.NA_EMEA__c.value ? 1 : 0),
                 Tool_Compatibility_Score: data.fields.Tool_Compatibility_Score__c.value === 0 ? '0' : (data.fields.Tool_Compatibility_Score__c.value || 'N/A'),
                 fitscore_count_of_needs: data.fields.fitscore_count_of_needs__c.value === 0 ? '0' : (data.fields.fitscore_count_of_needs__c.value || 'N/A'),
-                Primarily_Software: data.fields.Primarily_Software__c.value  === 0 ? '0' : (data.fields.Primarily_Software__c.valu || 'N/A'),
+                Primarily_Software: data.fields.Primarily_Software__c.value === 0 ? '0' : (data.fields.Primarily_Software__c.value || 'N/A'),
                 spiced_unweighted_score: data.fields.spiced_unweighted_score__c.value ?? 'N/A',
-                scoreDate: this.formatDate(data.fields.SPICED_AI_Score_Date__c.value) || 'N/A',
+                scoreDate: this.formatDateTime(data.fields.SPICED_AI_Score_Date__c.value) || 'N/A',
                 EconomicBuyerStatus: data.fields.Economic_Buyer_Status__c ? this.mapEconomicBuyerStatus(data.fields.Economic_Buyer_Status__c.value) : 'N/A',
                 championLevelScore: data.fields.champion_level_score__c.value ?? 'N/A',
                 championRoleScore: data.fields.spiced_champion_role_score__c.value ?? 'N/A',
