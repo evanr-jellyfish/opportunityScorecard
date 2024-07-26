@@ -6,24 +6,27 @@
                     <th colspan="4"><h1>Jellyfish Opportunity Scorecard</h1></th>
                 </tr>
                 <tr>
-                    <td colspan="4">v2024.07.24</td>
+                    <td colspan="4">v2024.07.17 - 02:00 pm</td>
                 </tr>
                 <tr><td colspan="4" style="height: 20px;"></td></tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Opportunity Name</td>
-                    <td colspan="2">{opportunityData.name}</td>
-                    <td style="font-weight: bold;">Overall Score (Unweighted): {opportunityData.spiced_unweighted_score} / 15</td>
+                    <td width="37%">Opportunity Name</td>
+                    <td width="23%">{opportunityData.name}</td>
+                    <td width="40%" style="font-weight: bold;">&nbsp;</td>
+                    <td width="40%" style="font-weight: bold;">Overall Score (Unweighted): {opportunityData.spiced_unweighted_score} / 15</td>
                 </tr>
                 <tr>
                     <td>Amount</td>
-                    <td colspan="2">{opportunityData.amount}</td>
-                    <td style="font-weight: bold;">Weighted Score: {opportunityData.spiced_weighted_score} / 25</td>
+                    <td>{opportunityData.amount}</td>
+                    <td style="font-weight: bold;">&nbsp;</td>
+                    <td style="font-weight: bold;">Weighted Score: {opportunityData.spiced_weighted_score} / 30</td>
                 </tr>
                 <tr>
                     <td>Close Date</td>
-                    <td colspan="2">{opportunityData.closeDate}</td>
+                    <td>{opportunityData.closeDate}</td>
+                    <td style="font-weight: bold;">&nbsp;</td>
                     <td style="font-weight: bold;">Last Scored: {opportunityData.scoreDate}</td>
                 </tr>
                 <tr>
@@ -32,7 +35,8 @@
                 </tr>
                 <tr>
                     <td>Next Steps</td>
-                    <td colspan="2">{opportunityData.nextStep}</td>
+                    <td>{opportunityData.nextStep}</td>
+                    <td></td>
                     <td></td>
                 </tr>
                 <tr><td colspan="4" style="height: 20px;"></td></tr>
@@ -58,30 +62,30 @@
                     <th>Criteria</th>
                     <th>Description</th>
                     <th>Weight</th>
-                    <th>Unweighted Score</th>
+                    <th>Color Code</th>
                 </tr>
                 <tr>
                     <td>Is 100% of the customer using compatible tools?</td>
                     <td>Tool Usage</td>
-                    <td>3</td>
+                    <td align="center" class={toolCompatibilityColorClass}>&nbsp;</td>
                     <td align="center" class={toolCompatibilityColorClass}>{opportunityData.Tool_Compatibility_Score}</td>
                 </tr>
                 <tr>
                     <td>Is the prospect based in USA/EMEA?</td>
                     <td>Location</td>
-                    <td >2</td>
+                    <td align="center" class={naEmeaColorClass}>&nbsp;</td>
                     <td align="center" class={naEmeaColorClass}>{opportunityData.NA_EMEA}</td>
                 </tr>
                 <tr>
                     <td>Is the prospect primarily a software company?</td>
                     <td>Software Focus</td>
-                    <td>1</td>
+                    <td align="center" class={primarilySoftwareColorClass}>&nbsp;</td>
                     <td align="center" class={primarilySoftwareColorClass}>{opportunityData.Primarily_Software}</td>
                 </tr>
                 <tr>
                     <td>What is the signal value that came from the AE-provided note?</td>
                     <td>Signal Score</td>
-                    <td>0.25</td>
+                    <td align="center" class={situationDataScoreClass}>&nbsp;</td>
                     <td align="center" class={situationDataScoreClass}>{opportunityData.spicedSituationSignalScore}</td>
                 </tr>
                 <tr><td colspan="4" style="height: 20px;"></td></tr>
@@ -107,12 +111,12 @@
                     <th>Criteria</th>
                     <th>Description</th>
                     <th>Weight</th>
-                    <th>Unweighted Score</th>
+                    <th>Color Code</th>
                 </tr>
                 <tr>
                     <td>What is the signal value that came from the AE-provided note?</td>
                     <td>Signal Score</td>
-                    <td>0.25</td>
+                    <td align="center" class={painSignalScoreClass}>&nbsp;</td>
                     <td align="center" class={painSignalScoreClass}>{opportunityData.spicedPainSignalScore}</td>
                 </tr>
                 <tr><td colspan="4" style="height: 20px;"></td></tr>
@@ -138,12 +142,12 @@
                     <th>Criteria</th>
                     <th>Description</th>
                     <th>Weight</th>
-                    <th>Unweighted Score</th>
+                    <th>Color Code</th>
                 </tr>
                 <tr>
                     <td>What is the signal value that came from the AE-provided note?</td>
                     <td>Signal Score</td>
-                    <td>0.25</td>
+                    <td align="center" class={impactDataScoreClass}>&nbsp;</td>
                     <td align="center" class={impactDataScoreClass}>{opportunityData.spicedImpactSignalScore}</td>
                 </tr>
                 <tr><td colspan="4" style="height: 20px;"></td></tr>
@@ -169,12 +173,12 @@
                     <th>Criteria</th>
                     <th>Description</th>
                     <th>Weight</th>
-                    <th>Unweighted Score</th>
+                    <th>Color Code</th>
                 </tr>
                 <tr>
                     <td>What is the signal value that came from the AE-provided note?</td>
                     <td>Signal Score</td>
-                    <td>0.25</td>
+                    <td align="center" class={criticalEventSignalScoreClass}>&nbsp;</td>
                     <td align="center" class={criticalEventSignalScoreClass}>{opportunityData.spicedCritEventSignalScore}</td>
                 </tr>
                 <tr><td colspan="4" style="height: 20px;"></td></tr>
@@ -200,12 +204,12 @@
                     <th>Criteria</th>
                     <th>Description</th>
                     <th>Weight</th>
-                    <th>Unweighted Score</th>
+                    <th>Color Code</th>
                 </tr>
                 <tr>
                     <td>What is the signal value that came from the AE-provided note?</td>
                     <td>Signal Score</td>
-                    <td>0.25</td>
+                    <td align="center" class={decisionCriteriaSignalScoreClass}>&nbsp;</td>
                     <td align="center" class={decisionCriteriaSignalScoreClass}>{opportunityData.spicedDecisionProcSignalScore}</td>
                 </tr>
                 <tr><td colspan="4" style="height: 20px;"></td></tr>
@@ -231,12 +235,12 @@
                     <th>Criteria</th>
                     <th>Description</th>
                     <th>Weight</th>
-                    <th>Unweighted Score</th>
+                    <th>Color Code</th>
                 </tr>
                 <tr>
                     <td>What is the signal value that came from the AE-provided note?</td>
                     <td>Signal Score</td>
-                    <td>0.25</td>
+                    <td align="center" class={competitionSignalScoreClass}>&nbsp;</td>
                     <td align="center" class={competitionSignalScoreClass}>{opportunityData.spicedCompetitionSignalScore}</td>
                 </tr>
                 <tr><td colspan="4" style="height: 20px;"></td></tr>
@@ -251,15 +255,15 @@
                     <th colspan="4"><h2>Customer Fit Score Details</h2></th>
                 </tr>                
                 <tr>
-                    <th>Criteria</th>
-                    <th>Description</th>
-                    <th>Weight</th>
-                    <th>Unweighted Score</th>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td align="center" class ={fitScoreColorClass}>&nbsp;</td>
+                  <td align="center" class ={fitScoreColorClass}>&nbsp;</td>
                 </tr>
                 <tr>
                     <td>How many use cases are scored as "Need to Have"?</td>
-                    <td>&nbsp;</td>
-                    <td>Max: 3</td>
+                    <td>Score</td>
+                    <td align="center" class ={fitScoreColorClass}>&nbsp;</td>
                     <td align="center" class ={fitScoreColorClass}>{opportunityData.fitscore_count_of_needs}</td>
                 </tr>
                 <tr><td colspan="4" style="height: 20px;"></td></tr>
@@ -273,8 +277,8 @@
                 <tr>
                     <th>Criteria</th>
                     <th>Description</th>
-                    <th>Weight</th>
-                    <th>Unweighted Score</th>
+                    <th>&nbsp;</th>
+                    <th>Color Code</th>
                 </tr>
                 <tr>
                     <td valign="top">Level of Champion</td>
@@ -282,9 +286,9 @@
                         0 = Not Listed, OR No champion<br>
                         1 = Manager<br>
                         3 = Director<br>
-                        5 = VP / Exec<br>
-                    </td>
-                    <td>0.5</td>
+                        5 = VP / Exec
+                        <br><br></td>
+                    <td valign="top" align="center" class={championLevelScoreColorClass}>&nbsp;</td>
                     <td valign="top" align="center" class={championLevelScoreColorClass}>{opportunityData.championLevelScore}</td>
                 </tr>
                 <tr>
@@ -292,9 +296,8 @@
                     <td valign="top">0 = Not Listed OR No champion OR Unclear Role Type<br>                        
                         3 = Operations<br>
                         4 = Finance<br>
-                        5 = Engineering<br>
-                    </td>
-                    <td>0.5</td>
+                        5 = Engineering<br></td>
+                    <td align="center" valign="top" class={championRoleTypeColorClass}>&nbsp;</td>
                     <td align="center" valign="top" class={championRoleTypeColorClass}>{opportunityData.championRoleScore}</td>
                 </tr>
                 <tr>
@@ -304,7 +307,7 @@
                         2 = Met and not Engaged<br>
                         5 = Met and Engaged
                         <br><br></td>
-                    <td>1</td>
+                    <td align="center" valign="top" class={EconomicBuyerStatusColorClass}>&nbsp;</td>
                     <td align="center" valign="top" class={EconomicBuyerStatusColorClass}>{opportunityData.EconomicBuyerStatus}</td>
                 </tr>
             </tbody>

@@ -48,23 +48,27 @@ th.grayBackground  {
     background-color: green;
     color: white;
     border: 1px solid black;
+    text-align: center;
 }
 
 .red {
     background-color: red;
     color: white;
     border: 1px solid black;
+    text-align: center;
 }
 
 .dark-yellow {
     background-color: #FFA500; /* Adjust this to your desired dark yellow color */
     color: black;
     border: 1px solid black;
+    text-align: center;
 }
 
 .dark-red {
     background-color: darkred;
     color: white; /* Ensures text is readable on a dark red background */
     border: 1px solid black;
+    text-align: center;
 }
         

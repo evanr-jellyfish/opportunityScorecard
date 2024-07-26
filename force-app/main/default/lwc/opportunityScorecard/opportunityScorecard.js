@@ -243,11 +243,9 @@ export default class OpportunityScorecard extends LightningElement {
     get championLevelScoreColorClass() {
         const score = this.opportunityData.championLevelScore;
     
-        if (score == 'N/A' || score == null) {
+        if (score == 'N/A' || score == null || score == 0) {
             return 'dark-red';
-        } else if (score == 0) {
-            return 'dark-red';
-        } else if (score == 1 || score == 2) {
+        } else if (score == 1 || score == 2 || score == 3) {
             return 'dark-yellow';
         } else if (score == 5) {
             return 'green';
@@ -307,7 +305,7 @@ export default class OpportunityScorecard extends LightningElement {
             return 'dark-yellow';
         } else if (score === 4) {
             return 'green';
-        } else if (score === 'N/A' || score == null) {
+        } else if (score === 'N/A' || score == null || score == 0) {
             return 'dark-red';
         } else {
             return '';
